@@ -1,5 +1,5 @@
 ﻿using Catalog.API.Data;
-using Catalog.API.Model;
+using Catalog.API.Entities;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace Catalog.API.Repositories
             return await _context.Products.Find(p => p.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Product>> GetProductbyCategory(string categoryName)
+        public async Task<IEnumerable<Product>> GetProductByCategory(string categoryName)
         {
             FilterDefinition<Product> filter = Builders<Product>.Filter.Eq(p => p.Category, categoryName);
             return await _context.Products.Find(filter).ToListAsync();

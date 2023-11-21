@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Catalog.API.Model;
+using Catalog.API.Entities;
 
 namespace Catalog.API.Repositories
 {
@@ -11,7 +11,7 @@ namespace Catalog.API.Repositories
         Task<IEnumerable<Product>> GetProducts();
         Task<Product> GetProduct(string id);
         Task<IEnumerable<Product>> GetProductbyName(string name);
-        Task<IEnumerable<Product>> GetProductbyCategory(string categoryName);
+        Task<IEnumerable<Product>> GetProductByCategory(string categoryName);
 
         Task CreateProduct(Product product);
         Task<bool> UpdateProduct(Product product);
